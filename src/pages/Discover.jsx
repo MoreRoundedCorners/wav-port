@@ -35,24 +35,6 @@ const Discover = ({ modalIsOpen, user }) => {
 
   return (
     <section className="flex flex-col ">
-      {/* discover title and option dropdown */}
-      {/* <div className="flex flex-col h-40 ">
-        <p className="text-white text-center mx-auto my-auto text-xl">
-          Take Our Free Music Test For a Playlist Tailored To Your Liking!
-        </p>
-
-        <button
-          onClick={openModal}
-          className="border w-28 h-10 align-center items-center mx-auto text-white bg-purple-500"
-        >
-          Take Test
-        </button>
-        <MusicTestModal
-          isOpen={isTestModalOpen}
-          modalIsOpen={modalIsOpen}
-          closeModal={closeModal}
-        />
-      </div> */}
       <div>
         <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
           <h2 className="font-bold text-3xl text-left text-white">
