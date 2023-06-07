@@ -5,7 +5,6 @@ import { useGetSongsByGenreQuery } from "../redux/services/shazamCore";
 import { useDispatch, useSelector } from "react-redux";
 import { selectGenreListId } from "../redux/features/playerSlice";
 import { useNavigate } from "react-router-dom";
-import MusicTestModal from "../components/MusicTestModal";
 
 const Discover = ({ modalIsOpen, user }) => {
   const navigate = useNavigate();
