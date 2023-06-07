@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const playlistRoutes = require("./routes/playlistRoutes");
+const path = require("path");
 
 // Load environment variables from .env file
 dotenv.config();
@@ -19,6 +20,13 @@ app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/playlists", playlistRoutes);
+
+app.use(express.static(path.join(__dirname, "../dist")));
+
+// Fallback handler should be the last route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
+});
 
 // Connect to MongoDB
 mongoose
