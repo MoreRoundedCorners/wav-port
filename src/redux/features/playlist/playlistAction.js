@@ -43,7 +43,7 @@ export const createPlaylist = (newPlaylist) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.post(
-      `http://${process.env.REACT_APP_API_URL}/api/playlists`,
+      `${import.meta.env.VITE_APP_API_URL}/api/playlists`,
       newPlaylist,
       config
     );
@@ -76,7 +76,7 @@ export const createPlaylist = (newPlaylist) => async (dispatch, getState) => {
 //       // ...
 
 //       const { data } = await axios.post(
-//         "http://localhost:5000/api/playlists",
+//         "localhost:5000/api/playlists",
 //         newPlaylist,
 //         config
 //       );
@@ -103,7 +103,7 @@ export const deletePlaylist = (playlistId) => async (dispatch, getState) => {
     };
 
     await axios.delete(
-      `http://${process.env.REACT_APP_API_URL}/api/playlists/${playlistId}`,
+      `${import.meta.env.VITE_APP_API_URL}/api/playlists/${playlistId}`,
       config
     );
 
@@ -127,7 +127,9 @@ export const addSongToPlaylist =
         const token = auth.token;
 
         const response = await axios.post(
-          `http://${process.env.REACT_APP_API_URL}/api/playlists/${playlistId}/songs`,
+          `${
+            import.meta.env.VITE_APP_API_URL
+          }/api/playlists/${playlistId}/songs`,
           { song }, // <-- Wrap song in an object
           {
             headers: {
@@ -170,7 +172,7 @@ export const createPlaylistWithSongs = createAsyncThunk(
 
       // Create new playlist
       const playlistResponse = await axios.post(
-        `http://${process.env.REACT_APP_API_URL}/api/playlists`,
+        `${import.meta.env.VITE_APP_API_URL}/api/playlists`,
         {
           title,
           description,
@@ -193,7 +195,9 @@ export const createPlaylistWithSongs = createAsyncThunk(
         };
         console.log("song parts from playlust action", songParts);
         const addSongResponse = await axios.post(
-          `http://${process.env.REACT_APP_API_URL}/api/playlists/${newPlaylist.id}/songs`,
+          `${import.meta.env.VITE_APP_API_URL}/api/playlists/${
+            newPlaylist.id
+          }/songs`,
           songParts,
           config // Include the config object with the Authorization header
         );
@@ -228,7 +232,7 @@ export const fetchPlaylists = () => async (dispatch, getState) => {
     console.log("Fetching playlists, current state:", getState().playlists);
 
     const response = await axios.get(
-      `http://${process.env.REACT_APP_API_URL}/api/playlists`,
+      `${import.meta.env.VITE_APP_API_URL}/api/playlists`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -258,7 +262,9 @@ export const deleteSong = (playlistId, song) => async (dispatch, getState) => {
     };
 
     await axios.delete(
-      `http://${process.env.REACT_APP_API_URL}/api/playlists/${playlistId}/songs/${song.key}`,
+      `${import.meta.env.VITE_APP_API_URL}/api/playlists/${playlistId}/songs/${
+        song.key
+      }`,
       config
     );
 
