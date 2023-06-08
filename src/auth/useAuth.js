@@ -29,7 +29,7 @@ function useAuth() {
   const register = async (name, email, password) => {
     try {
       // replace!!!
-      await axios.post("http://localhost:5000/api/users/register", {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/users/register`, {
         name,
         email,
         password,
@@ -51,7 +51,7 @@ function useAuth() {
       try {
         const response = await axios.get(
           // replace!!!
-          "http://localhost:5000/api/users/protected",
+          `${process.env.REACT_APP_API_URL}/api/users/protected`,
           {
             headers: { Authorization: `Bearer ${storedToken}` },
           }

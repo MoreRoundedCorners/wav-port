@@ -9,10 +9,13 @@ export const loginUser = (email, password) => async (dispatch) => {
   dispatch(loginRequest());
 
   try {
-    const response = await axios.post("http://localhost:5000/api/users/login", {
-      email,
-      password,
-    });
+    const response = await axios.post(
+      `http://${process.env.REACT_APP_API_URL}/api/users/login`,
+      {
+        email,
+        password,
+      }
+    );
 
     const { token, refreshToken, user } = response.data;
 
@@ -40,7 +43,7 @@ export const logoutUser = () => (dispatch) => {
 export const registerUser = (userData) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/users/register",
+      `http://${process.env.REACT_APP_API_URL}/api/users/register`,
       userData
     );
     const { token, user } = response.data;
