@@ -9,6 +9,7 @@ import { FaAddressBook, FaMusic, FaTrash } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
 
 export const genres = [
+  // { value: "myCollection", title: "My Collection" },
   { title: "Pop", value: "POP" },
   { title: "Hip-Hop", value: "HIP_HOP_RAP" },
   { title: "Dance", value: "DANCE" },

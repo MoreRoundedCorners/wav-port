@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const playlistRoutes = require("./routes/playlistRoutes");
+const songRouter = require("./routes/s3Routes");
 const path = require("path");
 
 // Load environment variables from .env file
@@ -18,8 +19,10 @@ app.use(cors());
 // Parse JSON request body
 app.use(express.json());
 
+// routes
 app.use("/api/users", userRoutes);
 app.use("/api/playlists", playlistRoutes);
+app.use("/api", songRouter);
 
 app.use(express.static(path.join(__dirname, "../build")));
 

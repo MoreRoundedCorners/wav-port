@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { SongCard } from "../components";
-import songsArr from "../components/utils/songsArr";
 
 const AroundYou = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
+  const [songsArr, setSongsArr] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/songs")
+      .then((response) => response.json())
+      .then((songs) => setSongsArr(songs))
+      .catch((err) => console.error("Error:", err));
+  }, []);
 
   return (
     <div className="">

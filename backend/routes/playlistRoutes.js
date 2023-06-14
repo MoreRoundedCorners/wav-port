@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const PlaylistController = require("../controllers/PlaylistController");
 const { authMiddleware } = require("../controllers/UserController");
+const { getSongsData } = require("../s3/s3Fetch");
 
 router.get("/", authMiddleware, PlaylistController.getAllPlaylists);
 router.get("/:id", authMiddleware, PlaylistController.getPlaylistById);
@@ -34,5 +35,10 @@ router.put(
   authMiddleware,
   PlaylistController.updateSongInPlaylist
 );
+
+router.get("/api/songs", async (req, res) => {
+  const songsData = await getSongsData();
+  res.json(songsData);
+});
 
 module.exports = router;

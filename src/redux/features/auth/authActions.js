@@ -4,18 +4,15 @@ import { fetchPlaylists } from "../playlist/playlistAction";
 
 // Async action creator for login
 export const loginUser = (email, password) => async (dispatch) => {
-  // console.log("Email:", email);
-  // console.log("Password:", password);
+  console.log("Email:", email);
+  console.log("Password:", password);
   dispatch(loginRequest());
 
   try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_APP_API_URL}/api/users/login`,
-      {
-        email,
-        password,
-      }
-    );
+    const response = await axios.post("http://localhost:5000/api/users/login", {
+      email,
+      password,
+    });
 
     const { token, refreshToken, user } = response.data;
 
@@ -28,8 +25,6 @@ export const loginUser = (email, password) => async (dispatch) => {
     return { payload: { success: true } };
   } catch (error) {
     const errorMessage = error.response?.data?.message || "Login failed";
-    console.log("errorMessage", errorMessage);
-    console.log("error.response", error);
     dispatch(loginFailure(errorMessage));
     return { payload: { success: false, error: errorMessage } };
   }
@@ -45,7 +40,7 @@ export const logoutUser = () => (dispatch) => {
 export const registerUser = (userData) => async (dispatch) => {
   try {
     const response = await axios.post(
-      `${import.meta.env.VITE_APP_API_URL}/api/users/register`,
+      `http://${process.env.REACT_APP_API_URL}/api/users/register`,
       userData
     );
     const { token, user } = response.data;
@@ -54,8 +49,6 @@ export const registerUser = (userData) => async (dispatch) => {
     dispatch(loginSuccess({ user, token: token })); // Dispatch loginSuccess action
   } catch (error) {
     const errorMessage = error.response?.data?.message || "Registration failed";
-    console.log("errorMessage", errorMessage);
-    console.log("error.response", error);
     dispatch(loginFailure(errorMessage));
   }
 };

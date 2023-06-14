@@ -64,7 +64,7 @@ const songsArr = [
   },
   {
     id: 8,
-    title: "LONG ROAD",
+    title: "I Get It Now",
     artist: "Nicholas Ramirez",
     album: "Iris",
     cover: "/myMusic/cover/cover2.jpg",

@@ -29,14 +29,11 @@ function useAuth() {
   const register = async (name, email, password) => {
     try {
       // replace!!!
-      await axios.post(
-        `${import.meta.env.VITE_APP_API_URL}/api/users/register`,
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      await axios.post("http://localhost:5000/api/users/register", {
+        name,
+        email,
+        password,
+      });
       return { success: true };
     } catch (error) {
       const errorMessage =
@@ -54,7 +51,7 @@ function useAuth() {
       try {
         const response = await axios.get(
           // replace!!!
-          `${import.meta.env.VITE_APP_API_URL}/api/users/protected`,
+          "http://localhost:5000/api/users/protected",
           {
             headers: { Authorization: `Bearer ${storedToken}` },
           }
