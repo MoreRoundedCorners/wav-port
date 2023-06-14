@@ -6,7 +6,7 @@ import { links } from "../assets/constants";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/features/auth/authActions";
 import { logo } from "../assets";
-import log from "../assets/log.png";
+
 import purpwav from "../assets/purpwav.png";
 
 const NavLinks = ({ handleClick, onLogout }) => {
