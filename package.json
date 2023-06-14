@@ -23,6 +23,7 @@
     "express": "^4.18.2",
     "formik": "^2.2.9",
     "framer": "^2.3.0",
+    "framer-motion": "^10.12.16",
     "jquery": "^3.7.0",
     "jsonwebtoken": "^9.0.0",
     "mongo": "^0.1.0",
