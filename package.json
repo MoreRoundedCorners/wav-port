@@ -9,7 +9,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "start": "node backend/server.js",
-    "postinstall": "npm install && npm run build"
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
