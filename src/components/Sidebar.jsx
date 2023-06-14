@@ -11,7 +11,6 @@ import purpwav from "../assets/purpwav.png";
 
 const NavLinks = ({ handleClick, onLogout }) => {
   const memoizedSelector = useCallback((state) => {
-    console.log("state: ", state);
     return state.auth;
   }, []);
 
