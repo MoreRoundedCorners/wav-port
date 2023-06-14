@@ -6,8 +6,7 @@ import { links } from "../assets/constants";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../redux/features/auth/authActions";
 import { logo } from "../assets";
-
-import purpwav from "../assets/purpwav.png";
+import purpwav from "../assets/images/purpwav.png";
 
 const NavLinks = ({ handleClick, onLogout }) => {
   const memoizedSelector = useCallback((state) => {
