@@ -7,7 +7,7 @@ const AroundYou = () => {
   const [songsArr, setSongsArr] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/songs")
+    fetch("/api/songs")
       .then((response) => response.json())
       .then((songs) => setSongsArr(songs))
       .catch((err) => console.error("Error:", err));
