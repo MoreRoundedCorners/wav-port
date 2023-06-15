@@ -3,6 +3,8 @@ import { loginUser, logoutUser } from "../redux/features/auth/authActions";
 import axios from "axios";
 import { useCallback } from "react";
 
+const apiUrl = "https://wav-port.herokuapp.com";
+
 function useAuth() {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -28,8 +30,7 @@ function useAuth() {
 
   const register = async (name, email, password) => {
     try {
-      // replace!!!
-      await axios.post("http://localhost:5000/api/users/register", {
+      await axios.post(`${apiUrl}/api/users/register`, {
         name,
         email,
         password,
@@ -49,13 +50,9 @@ function useAuth() {
     if (storedToken) {
       // Make an API call to verify the token and retrieve the user data
       try {
-        const response = await axios.get(
-          // replace!!!
-          "http://localhost:5000/api/users/protected",
-          {
-            headers: { Authorization: `Bearer ${storedToken}` },
-          }
-        );
+        const response = await axios.get(`${apiUrl}/api/users/protected`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        });
         console.log("response headers", response.headers); // log the headers object to see if the Authorization header is set
         const { user } = response.data;
         console.log("user from iniAuth", user);

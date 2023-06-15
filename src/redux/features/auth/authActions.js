@@ -2,14 +2,15 @@ import axios from "axios";
 import { loginRequest, loginSuccess, loginFailure, logout } from "./authSlice";
 import { fetchPlaylists } from "../playlist/playlistAction";
 
-// Async action creator for login
+const apiUrl = "https://wav-port.herokuapp.com";
+
 export const loginUser = (email, password) => async (dispatch) => {
   console.log("Email:", email);
   console.log("Password:", password);
   dispatch(loginRequest());
 
   try {
-    const response = await axios.post("http://localhost:5000/api/users/login", {
+    const response = await axios.post(`${apiUrl}/api/users/login`, {
       email,
       password,
     });
@@ -17,7 +18,6 @@ export const loginUser = (email, password) => async (dispatch) => {
     const { token, refreshToken, user } = response.data;
 
     localStorage.setItem("token", token);
-
     localStorage.setItem("refreshToken", refreshToken);
 
     dispatch(loginSuccess({ user, token, refreshToken }));
@@ -39,26 +39,13 @@ export const logoutUser = () => (dispatch) => {
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
-    const response = await axios.post(
-      `http://${process.env.REACT_APP_API_URL}/api/users/register`,
-      userData
-    );
+    const response = await axios.post(`${apiUrl}/api/users/register`, userData);
     const { token, user } = response.data;
 
-    localStorage.setItem("token", token); // Store the token
-    dispatch(loginSuccess({ user, token: token })); // Dispatch loginSuccess action
+    localStorage.setItem("token", token);
+    dispatch(loginSuccess({ user, token: token }));
   } catch (error) {
     const errorMessage = error.response?.data?.message || "Registration failed";
     dispatch(loginFailure(errorMessage));
   }
 };
-
-// export const loginYes = ({ user, jwt, refreshToken }) => {
-//   localStorage.setItem("accessToken", jwt);
-//   localStorage.setItem("refreshToken", refreshToken);
-
-//   return {
-//     type: loginSuccess,
-//     payload: { user, token: jwt, refreshToken },
-//   };
-// };
