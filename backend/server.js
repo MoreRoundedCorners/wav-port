@@ -24,12 +24,13 @@ app.use("/api/users", userRoutes);
 app.use("/api/playlists", playlistRoutes);
 app.use("/api", songRouter);
 
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "../dist")));
 
 // Fallback handler should be the last route
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build", "index.html"));
+  res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI, {
