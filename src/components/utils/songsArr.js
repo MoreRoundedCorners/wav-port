@@ -26,15 +26,7 @@ const songsArr = [
     path: "/myMusic/1UpTop.wav",
     artist: "Nicholas Ramirez",
   },
-  {
-    id: 4,
-    title: "9pH",
-    artist: "Nicholas Ramirez",
-    album: "Iris",
-    cover: "/myMusic/cover/cover2.jpg",
-    path: "/myMusic/9pH.wav",
-    artist: "Nicholas Ramirez",
-  },
+
   {
     id: 5,
     title: "NahNah_3",
