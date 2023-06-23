@@ -4,7 +4,7 @@ import songsArr from "../../../components/utils/songsArr";
 export const irisPlaylist = {
   _id: "iris",
   title: "Iris",
-  images: ["/public/myMusic/cover/cover2.jpg"],
+  images: ["https://wav-local-songs.s3.us-west-1.amazonaws.com/cover2.jpg"],
   songs: songsArr,
   isEditable: false,
 };
