@@ -1,4 +1,4 @@
-# My Awesome Project
+# .WAV
 
 Full Stack Application designed around the idea of allowing users to create profiles, create playlists, and stream songs from data available.
 
