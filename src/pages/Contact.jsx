@@ -2,26 +2,26 @@ import React from "react";
 
 const Contact = () => {
   const contactImg = [
-    {
-      id: 1,
-      img: "https://img.icons8.com/color/48/000000/linkedin.png",
-      link: "https://www.linkedin.com",
-    },
+    // {
+    //   id: 1,
+    //   img: "https://img.icons8.com/color/48/000000/linkedin.png",
+    //   link: "https://www.linkedin.com",
+    // },
     {
       id: 2,
-      img: "https://img.icons8.com/color/48/000000/twitter.png",
-      link: "https://twitter.com",
+      img: "https://wav-local-songs.s3.us-west-1.amazonaws.com/blue-net.png",
+      link: "https://nicholasramirez.dev/",
     },
     {
       id: 3,
-      img: "https://img.icons8.com/color/48/000000/facebook.png",
-      link: "https://www.facebook.com",
+      img: "https://wav-local-songs.s3.us-west-1.amazonaws.com/blue_mail.png",
+      link: "mailto:nick2u99@gmail.com",
     },
     // create an object for github
     {
       id: 4,
       img: "https://img.icons8.com/color/48/000000/github--v1.png",
-      link: "https://github.com",
+      link: "https://github.com/MoreRoundedCorners",
     },
   ];
 
@@ -42,7 +42,7 @@ const Contact = () => {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer "
-              className="transition-transform duration-500 ease-out hover:scale-110"
+              className="transition-transform duration-500 ease-out hover:scale-110 w-12"
             >
               <img src={item.img} alt="Contact Icon" />
             </a>
